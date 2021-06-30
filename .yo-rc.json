@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "name.trifon.beeserver",
+      "nativeLanguage": "bg"
+    },
+    "jhipsterVersion": "6.9.1-a02",
+    "applicationType": "monolith",
+    "baseName": "beeServer",
+    "packageName": "name.trifon.beeserver",
+    "packageFolder": "name/trifon/beeserver",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "Mzc0NGZhOWU2NWMxNGQ0ZWY0Y2ZkOWQ3ZmZmMzc3YmIwZjlmM2JlYzBjODkyYTdkZGZmYWVhMGFjNzkzNDViYjU2YzIyYWY4MDBmYTFhOTZlYzdjODZjYjBhZjZkZDA3NzA3OWE4MzIzOTQwYmZiY2QzMWY0Nzg2NjlkMmY3Njg=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "materia",
+    "clientThemeVariant": "primary",
+    "creationTimestamp": 1625064824722,
+    "testFrameworks": ["gatling", "cucumber"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "bg",
+    "languages": ["bg", "en"],
+    "blueprints": []
+  }
+}

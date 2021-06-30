@@ -1,0 +1,12 @@
+version: '3'
+services:
+  beeserver-postgresql:
+    image: postgres:12.3
+    # volumes:
+    #     - ~/volumes/jhipster/beeServer/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=beeServer
+      - POSTGRES_PASSWORD=
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - 127.0.0.1:5432:5432 #@Trifon
