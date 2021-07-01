@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="beeServerApp.beehive.home.title">Beehives</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-beehive" [routerLink]="['/beehive/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="beeServerApp.beehive.home.createLabel">
+            Create a new Beehive
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="beehives?.length === 0">
+        <span jhiTranslate="beeServerApp.beehive.home.notFound">No beehives found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="beehives && beehives.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="beeServerApp.beehive.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="beeServerApp.beehive.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="active"><span jhiTranslate="beeServerApp.beehive.active">Active</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="beeServerApp.beehive.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="yearCreated"><span jhiTranslate="beeServerApp.beehive.yearCreated">Year Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="monthCreated"><span jhiTranslate="beeServerApp.beehive.monthCreated">Month Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="apiaryCode"><span jhiTranslate="beeServerApp.beehive.apiary">Apiary</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let beehive of beehives ;trackBy: trackId">
+                    <td><a [routerLink]="['/beehive', beehive.id, 'view']">{{ beehive.id }}</a></td>
+                    <td>{{ beehive.code }}</td>
+                    <td>{{ beehive.name }}</td>
+                    <td>{{ beehive.active }}</td>
+                    <td>{{ beehive.description }}</td>
+                    <td>{{ beehive.yearCreated }}</td>
+                    <td>{{ beehive.monthCreated }}</td>
+                    <td>
+                        <div *ngIf="beehive.apiaryId">
+                            <a [routerLink]="['/apiary', beehive.apiaryId , 'view']" >{{ beehive.apiaryCode }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/beehive', beehive.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/beehive', beehive.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(beehive)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="beehives && beehives.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

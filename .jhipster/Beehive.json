@@ -1,0 +1,104 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "apiary",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "otherEntityName": "apiary",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": ["required"],
+      "otherEntityField": "code",
+      "otherEntityField2": "name",
+      "includeAsObjectInDTO": false,
+      "ownerSide": true,
+      "otherEntityRelationshipName": "beehive"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "code",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": false,
+      "fieldSequence": false,
+      "fieldType": "String",
+      "visibleInTableMode": true,
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "name",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": false,
+      "fieldSequence": false,
+      "fieldType": "String",
+      "visibleInTableMode": true,
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "active",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": "Boolean.TRUE",
+      "fieldSequence": false,
+      "fieldType": "Boolean",
+      "visibleInTableMode": true
+    },
+    {
+      "fieldName": "description",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": false,
+      "fieldSequence": false,
+      "fieldType": "String",
+      "visibleInTableMode": true
+    },
+    {
+      "fieldName": "yearCreated",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": "2021",
+      "fieldSequence": false,
+      "fieldType": "Integer",
+      "visibleInTableMode": true
+    },
+    {
+      "fieldName": "monthCreated",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": "1",
+      "fieldSequence": false,
+      "fieldType": "Integer",
+      "visibleInTableMode": true
+    }
+  ],
+  "changelogDate": "20210630194400",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "beehive",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination",
+  "enableEntityAudit": false,
+  "multiUniqueConstraints": [],
+  "idGenerationStrategy": "sequence",
+  "numberOfFakeRows": 0,
+  "importByExpression": "apiary-and-code",
+  "multiUniqueConstraints": [
+    {
+      "constraintName": "ux_beehive__apiary_code",
+      "fields": ["apiary:many-to-one", "code"]
+    }
+  ],
+  "translatable": false,
+  "requiredRoleForCreate": false,
+  "requiredRoleForRead": false,
+  "requiredRoleForUpdate": false,
+  "requiredRoleForDelete": false,
+  "templateFactory": false,
+  "aggregateParents": []
+}

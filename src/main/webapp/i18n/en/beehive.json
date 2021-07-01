@@ -1,0 +1,28 @@
+{
+  "beeServerApp": {
+    "beehive": {
+      "home": {
+        "title": "Beehives",
+        "createLabel": "Create a new Beehive",
+        "createOrEditLabel": "Create or edit a Beehive",
+        "notFound": "No Beehives found"
+      },
+      "created": "A new Beehive is created with identifier {{ param }}",
+      "updated": "A Beehive is updated with identifier {{ param }}",
+      "deleted": "A Beehive is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Beehive {{ id }}?"
+      },
+      "detail": {
+        "title": "Beehive"
+      },
+      "code": "Code",
+      "name": "Name",
+      "active": "Active",
+      "description": "Description",
+      "yearCreated": "Year Created",
+      "monthCreated": "Month Created",
+      "apiary": "Apiary"
+    }
+  }
+}

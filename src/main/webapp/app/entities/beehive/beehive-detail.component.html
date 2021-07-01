@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="beehive">
+            <h2><span jhiTranslate="beeServerApp.beehive.detail.title">Beehive</span> {{ beehive.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="beeServerApp.beehive.code">Code</span></dt>
+                <dd>
+                    <span>{{ beehive.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="beeServerApp.beehive.name">Name</span></dt>
+                <dd>
+                    <span>{{ beehive.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="beeServerApp.beehive.active">Active</span></dt>
+                <dd>
+                    <span>{{ beehive.active }}</span>
+                </dd>
+                <dt><span jhiTranslate="beeServerApp.beehive.description">Description</span></dt>
+                <dd>
+                    <span>{{ beehive.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="beeServerApp.beehive.yearCreated">Year Created</span></dt>
+                <dd>
+                    <span>{{ beehive.yearCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="beeServerApp.beehive.monthCreated">Month Created</span></dt>
+                <dd>
+                    <span>{{ beehive.monthCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="beeServerApp.beehive.apiary">Apiary</span></dt>
+                <dd>
+                    <div *ngIf="beehive.apiaryId">
+                        <a [routerLink]="['/apiary', beehive.apiaryId, 'view']">{{ beehive.apiaryCode }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/beehive', beehive.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
