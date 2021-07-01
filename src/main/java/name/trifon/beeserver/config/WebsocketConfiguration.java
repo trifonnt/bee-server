@@ -43,6 +43,13 @@ public class WebsocketConfiguration implements WebSocketMessageBrokerConfigurer 
             .setAllowedOrigins(allowedOrigins)
             .withSockJS()
             .setInterceptors(httpSessionHandshakeInterceptor());
+
+        //@Trifon
+		registry.addEndpoint("/websocket/measurement-record")
+			.setHandshakeHandler(defaultHandshakeHandler())
+			.setAllowedOrigins(allowedOrigins)
+			.withSockJS()
+			.setInterceptors(httpSessionHandshakeInterceptor());
     }
 
     @Bean
