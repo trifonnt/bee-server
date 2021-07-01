@@ -10,6 +10,7 @@
         "apiary": "Apiary",
         "beehive": "Beehive",
         "device": "Device",
+        "measurementRecord": "Measurement Record",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

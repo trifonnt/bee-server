@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="beeServerApp.measurementRecord.home.title">Measurement Records</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-measurement-record" [routerLink]="['/measurement-record/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="beeServerApp.measurementRecord.home.createLabel">
+            Create a new Measurement Record
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="measurementRecords?.length === 0">
+        <span jhiTranslate="beeServerApp.measurementRecord.home.notFound">No measurementRecords found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="measurementRecords && measurementRecords.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="recordedAt"><span jhiTranslate="beeServerApp.measurementRecord.recordedAt">Recorded At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inboundCount"><span jhiTranslate="beeServerApp.measurementRecord.inboundCount">Inbound Count</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="outboundCount"><span jhiTranslate="beeServerApp.measurementRecord.outboundCount">Outbound Count</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deviceCode"><span jhiTranslate="beeServerApp.measurementRecord.device">Device</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let measurementRecord of measurementRecords ;trackBy: trackId">
+                    <td><a [routerLink]="['/measurement-record', measurementRecord.id, 'view']">{{ measurementRecord.id }}</a></td>
+                    <td>{{ measurementRecord.recordedAt | date:'medium' }}</td>
+                    <td>{{ measurementRecord.inboundCount }}</td>
+                    <td>{{ measurementRecord.outboundCount }}</td>
+                    <td>
+                        <div *ngIf="measurementRecord.deviceId">
+                            <a [routerLink]="['/device', measurementRecord.deviceId , 'view']" >{{ measurementRecord.deviceCode }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/measurement-record', measurementRecord.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/measurement-record', measurementRecord.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(measurementRecord)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="measurementRecords && measurementRecords.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

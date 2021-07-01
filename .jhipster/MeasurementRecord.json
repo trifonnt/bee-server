@@ -1,52 +1,55 @@
 {
   "fluentMethods": true,
   "clientRootFolder": "",
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipName": "device",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "otherEntityName": "device",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": ["required"],
+      "otherEntityField": "code",
+      "otherEntityField2": "name",
+      "includeAsObjectInDTO": false,
+      "ownerSide": true,
+      "otherEntityRelationshipName": "measurementRecord"
+    }
+  ],
   "fields": [
     {
-      "fieldName": "code",
+      "fieldName": "recordedAt",
       "visibleForRole": "ROLE_USER,ROLE_ADMIN",
       "readOnlyForRole": false,
       "defaultValueConstant": false,
       "fieldSequence": false,
-      "fieldType": "String",
-      "visibleInTableMode": true,
-      "fieldValidateRules": ["required", "unique"]
-    },
-    {
-      "fieldName": "name",
-      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
-      "readOnlyForRole": false,
-      "defaultValueConstant": false,
-      "fieldSequence": false,
-      "fieldType": "String",
-      "visibleInTableMode": true,
-      "fieldValidateRules": ["required"]
-    },
-    {
-      "fieldName": "active",
-      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
-      "readOnlyForRole": false,
-      "defaultValueConstant": "Boolean.TRUE",
-      "fieldSequence": false,
-      "fieldType": "Boolean",
+      "fieldType": "Instant",
       "visibleInTableMode": true
     },
     {
-      "fieldName": "description",
+      "fieldName": "inboundCount",
       "visibleForRole": "ROLE_USER,ROLE_ADMIN",
       "readOnlyForRole": false,
       "defaultValueConstant": false,
       "fieldSequence": false,
-      "fieldType": "String",
+      "fieldType": "Integer",
+      "visibleInTableMode": true
+    },
+    {
+      "fieldName": "outboundCount",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": false,
+      "fieldSequence": false,
+      "fieldType": "Integer",
       "visibleInTableMode": true
     }
   ],
-  "changelogDate": "20210630194500",
+  "changelogDate": "20210630194600",
   "dto": "mapstruct",
   "searchEngine": false,
   "service": "serviceImpl",
-  "entityTableName": "device",
+  "entityTableName": "measurement_record",
   "databaseType": "sql",
   "readOnly": false,
   "jpaMetamodelFiltering": true,
@@ -55,7 +58,7 @@
   "multiUniqueConstraints": [],
   "idGenerationStrategy": "sequence",
   "numberOfFakeRows": 0,
-  "importByExpression": "code",
+  "importByExpression": false,
   "multiUniqueConstraints": [],
   "translatable": false,
   "requiredRoleForCreate": false,

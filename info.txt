@@ -1,3 +1,6 @@
 = Tips and tricks
 -01) JPEG is better format for images(Machine Learning) than PNG
 
+
++02) Make measurement requests
+curl -X POST "http://localhost:9000/api/measurement-records" -H  "accept: */*" -H  "Content-Type: application/json" -d '{ "deviceCode": "камера-01",  "deviceId": 0,  "inboundCount": 10,  "outboundCount": 15,  "recordedAt": "2021-06-01T11:50:14.272Z"}'

@@ -10,6 +10,7 @@
         "apiary": "Пчелини",
         "beehive": "Кошери",
         "device": "Устройства",
+        "measurementRecord": "Измервания",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

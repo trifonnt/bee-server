@@ -54,8 +54,20 @@ $ jhipster entity MeasurementRecord --skip-checks
   - description: Text
 
 + MeasurementRecord
-  - device: Device
-  - dateRecorded: DateAndTime
+  - recordedAt: DateAndTime
   - inboundCount: int
   - outboundCount: int
-  - 
+  - device: Device
+
+
+???
+- DeviceRegistration
+  - code: String
+  - name: String
+  - active: boolean
+  - description: Text
+  - dateOfSales: DateAndTime
+  - dateOfAssignment: DateAndTime
+  - device: Device
+  - owner: User        -- when device is purchased in the store
+  - beehive: Beehive   -- when device is assigned to specific beehive
