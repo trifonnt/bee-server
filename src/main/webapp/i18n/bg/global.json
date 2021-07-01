@@ -9,6 +9,7 @@
         "main": "Обекти",
         "apiary": "Пчелини",
         "beehive": "Кошери",
+        "device": "Устройства",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

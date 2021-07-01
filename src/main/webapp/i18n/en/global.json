@@ -9,6 +9,7 @@
         "main": "Entities",
         "apiary": "Apiary",
         "beehive": "Beehive",
+        "device": "Device",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

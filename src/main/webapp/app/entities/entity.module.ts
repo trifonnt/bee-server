@@ -12,6 +12,10 @@ import { RouterModule } from '@angular/router';
         path: 'beehive',
         loadChildren: () => import('./beehive/beehive.module').then(m => m.BeeServerBeehiveModule),
       },
+      {
+        path: 'device',
+        loadChildren: () => import('./device/device.module').then(m => m.BeeServerDeviceModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

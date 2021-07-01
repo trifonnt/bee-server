@@ -1,0 +1,69 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+  ],
+  "fields": [
+    {
+      "fieldName": "code",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": false,
+      "fieldSequence": false,
+      "fieldType": "String",
+      "visibleInTableMode": true,
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "name",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": false,
+      "fieldSequence": false,
+      "fieldType": "String",
+      "visibleInTableMode": true,
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "active",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": "Boolean.TRUE",
+      "fieldSequence": false,
+      "fieldType": "Boolean",
+      "visibleInTableMode": true
+    },
+    {
+      "fieldName": "description",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": false,
+      "fieldSequence": false,
+      "fieldType": "String",
+      "visibleInTableMode": true
+    }
+  ],
+  "changelogDate": "20210630194500",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "device",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination",
+  "enableEntityAudit": false,
+  "multiUniqueConstraints": [],
+  "idGenerationStrategy": "sequence",
+  "numberOfFakeRows": 0,
+  "importByExpression": "code",
+  "multiUniqueConstraints": [
+  ],
+  "translatable": false,
+  "requiredRoleForCreate": false,
+  "requiredRoleForRead": false,
+  "requiredRoleForUpdate": false,
+  "requiredRoleForDelete": false,
+  "templateFactory": false,
+  "aggregateParents": []
+}
