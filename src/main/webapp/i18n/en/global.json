@@ -7,6 +7,7 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "apiary": "Apiary",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -50,7 +51,7 @@
         "authenticated": {
           "prefix": "If you want to ",
           "link": "sign in",
-          "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
+          "suffix": "."
         },
         "register": {
           "noaccount": "You don't have an account yet?",

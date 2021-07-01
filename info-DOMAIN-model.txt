@@ -1,0 +1,61 @@
+= Models
+## General(6)
+(Manual changes in Identifier: 
+  main/resources/config/liquibase/changelog/20200716124929_added_entity_Identifier.xml
+  domain/Identifier.java
+  service/IdentifierQueryService.java
+  service/IdentifierService.java
+  service/impl/IdentifierServiceImpl.java
+  service/mapper/IdentifierMapper.java
+  web/rest/IdentifierResource.java
+  test/java/bg/aspar/marketplace/domain/IdentifierTest.java
+  test/java/bg/aspar/marketplace/service/mapper/IdentifierMapperTest.java
+  test/java/bg/aspar/marketplace/web/rest/IdentifierResourceIT.java
+-$ jhipster entity Identifier --skip-checks
+
+
+## Apiary related(2)
+$ jhipster entity Apiary --skip-checks
+$ jhipster entity Beehive --skip-checks
+
+-### ADD ALL relations(+PartnerLocation)
+-$ jhipster entity Partner --skip-checks
+
+## Device related(2)
+$ jhipster entity Device --skip-checks
+$ jhipster entity MeasurementRecord --skip-checks
+
+
++ User
+  + firstName: String
+  + lastName: String
+
++ Apiary
+  - code: String
+  - name: String
+  - active: boolean
+  - description: Text
+  - address: Text
+  - owner: User
+
++ Beehive
+  - code: String
+  - name: String
+  - active: boolean
+  - description: Text
+  - yearCreated: int
+  - monthCreated: int
+  - apiary: Apiary
+
++ Device -- in future DeviceType(Camera, Scale)
+  - code: String
+  - name: String
+  - active: boolean
+  - description: Text
+
++ MeasurementRecord
+  - device: Device
+  - dateRecorded: DateAndTime
+  - inboundCount: int
+  - outboundCount: int
+  - 

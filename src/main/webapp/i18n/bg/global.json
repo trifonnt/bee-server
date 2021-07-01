@@ -7,6 +7,7 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Обекти",
+        "apiary": "Пчелин",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -50,7 +51,7 @@
         "authenticated": {
           "prefix": "Ако желаете да ",
           "link": "влезете в системата",
-          "suffix": ", Вие можете да използвате създадените вече акаунти:<br/>- Администратор (потребителско име=\"admin\" и парола=\"admin\") <br/>- Потребител (потребителско име=\"user\" и парола=\"user\")."
+          "suffix": "."
         },
         "register": {
           "noaccount": "Нямате ли все още акаунт?",

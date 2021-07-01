@@ -1,0 +1,95 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "owner",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "otherEntityName": "user",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": ["required"],
+      "otherEntityField": "login",
+      "otherEntityField2": "",
+      "includeAsObjectInDTO": false,
+      "ownerSide": true,
+      "otherEntityRelationshipName": "apiary"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "code",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": false,
+      "fieldSequence": false,
+      "fieldType": "String",
+      "visibleInTableMode": true,
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "name",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": false,
+      "fieldSequence": false,
+      "fieldType": "String",
+      "visibleInTableMode": true,
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "active",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": "Boolean.TRUE",
+      "fieldSequence": false,
+      "fieldType": "Boolean",
+      "visibleInTableMode": true
+    },
+    {
+      "fieldName": "description",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": false,
+      "fieldSequence": false,
+      "fieldType": "String",
+      "visibleInTableMode": true
+    },
+    {
+      "fieldName": "address",
+      "visibleForRole": "ROLE_USER,ROLE_ADMIN",
+      "readOnlyForRole": false,
+      "defaultValueConstant": false,
+      "fieldSequence": false,
+      "fieldType": "String",
+      "visibleInTableMode": true
+    }
+  ],
+  "changelogDate": "20210630194351",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "apiary",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination",
+  "enableEntityAudit": false,
+  "multiUniqueConstraints": [],
+  "idGenerationStrategy": "sequence",
+  "numberOfFakeRows": 0,
+  "importByExpression": "ownerId-and-code",
+  "multiUniqueConstraints": [
+    {
+      "constraintName": "ux_apiary__owner_code",
+      "fields": ["owner:many-to-one", "code"]
+    }
+  ],
+  "translatable": false,
+  "requiredRoleForCreate": false,
+  "requiredRoleForRead": false,
+  "requiredRoleForUpdate": false,
+  "requiredRoleForDelete": false,
+  "templateFactory": false,
+  "aggregateParents": []
+}
