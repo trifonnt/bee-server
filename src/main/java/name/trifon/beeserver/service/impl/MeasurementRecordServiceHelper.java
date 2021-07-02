@@ -36,7 +36,7 @@ public class MeasurementRecordServiceHelper {
 
 		//@Trifon-update WebSocket
 		MeasurementRecordDTO measurementRecordDTO = measurementRecordMapper.toDto(measurementRecord);
-		messagingTemplate.convertAndSend("/topic/measurement-record", measurementRecordDTO);
+		messagingTemplate.convertAndSend("/topic/measurement-record", measurementRecordDTO.getInboundCount());
 	}
 
 	public void beforeDelete(Long id) {

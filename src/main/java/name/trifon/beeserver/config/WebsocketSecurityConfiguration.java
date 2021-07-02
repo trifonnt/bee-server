@@ -12,12 +12,14 @@ public class WebsocketSecurityConfiguration extends AbstractSecurityWebSocketMes
     @Override
     protected void configureInbound(MessageSecurityMetadataSourceRegistry messages) {
         messages
-            .nullDestMatcher().authenticated()
-            .simpDestMatchers("/topic/tracker").hasAuthority(AuthoritiesConstants.ADMIN)
+//            .nullDestMatcher().authenticated() //@Trifon
+            .nullDestMatcher().anonymous() //@Trifon
+//            .simpDestMatchers("/topic/tracker").hasAuthority(AuthoritiesConstants.ADMIN)
             // matches any destination that starts with /topic/
             // (i.e. cannot send messages directly to /topic/)
             // (i.e. cannot subscribe to /topic/messages/* to get messages sent to
             // /topic/messages-user<id>)
+            .simpDestMatchers("/topic/measurement-record").permitAll()
             .simpDestMatchers("/topic/**").authenticated()
             // message types other than MESSAGE and SUBSCRIBE
             .simpTypeMatchers(SimpMessageType.MESSAGE, SimpMessageType.SUBSCRIBE).denyAll()

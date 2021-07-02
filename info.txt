@@ -4,3 +4,22 @@
 
 +02) Make measurement requests
 curl -X POST "http://localhost:9000/api/measurement-records" -H  "accept: */*" -H  "Content-Type: application/json" -d '{ "deviceCode": "камера-01",  "deviceId": 0,  "inboundCount": 10,  "outboundCount": 15,  "recordedAt": "2021-06-01T11:50:14.272Z"}'
+
+
+-03) Create new Angular component
+  Install Angular CLI
+$ sudo npm install -g @angular/cli
+
+  + https://www.jhipster.tech/using-angular/
+$ ng generate component my-new-component
+
+
+   Adding new route to Jhipster using Angular 4
+ - https://stackoverflow.com/questions/46587247/adding-new-route-to-jhipster-using-angular-4
+
+
++04) Manually added Graphic
+ - /bee-server/src/main/webapp/content/graphics.html
+
+ 
+-05) 

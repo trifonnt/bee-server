@@ -48,7 +48,11 @@ public class WebsocketConfiguration implements WebSocketMessageBrokerConfigurer 
 		registry.addEndpoint("/websocket/measurement-record")
 			.setHandshakeHandler(defaultHandshakeHandler())
 			.setAllowedOrigins(allowedOrigins)
+//			.setAllowedOrigins("*") //@Trifon-manual
 			.withSockJS()
+//			.setClientLibraryUrl("http://localhost:8080/myapp/js/sockjs-client.js")
+//			.setClientLibraryUrl("https://cdn.jsdelivr.net/npm/sockjs-client@1.5.0/dist/sockjs.min.js")
+//			.setClientLibraryUrl("https://cdn.jsdelivr.net/sockjs/1.0.0/sockjs.min.js")
 			.setInterceptors(httpSessionHandshakeInterceptor());
     }
 
