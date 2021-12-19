@@ -84,7 +84,6 @@
   "jpaMetamodelFiltering": true,
   "pagination": "pagination",
   "enableEntityAudit": false,
-  "multiUniqueConstraints": [],
   "idGenerationStrategy": "sequence",
   "numberOfFakeRows": 0,
   "importByExpression": "apiary-and-code",
